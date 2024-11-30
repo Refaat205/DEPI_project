@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Classification Demo</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        input[type="text"] { 
+            width: 100%; 
+            padding: 10px; 
+            margin: 10px 0; 
+        }
+        input[type="submit"] { 
+            padding: 10px 20px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Classification Model</h1>
+    <form action="/generate" method="post">
+        <input type="text" name="user_input" placeholder="Enter your text here" value="{{ user_input or '' }}">
+        <input type="submit" value="Analyze Text">
+    </form>
+    
+    {% if user_input %}
+        <h2>Input:</h2>
+        <p>{{ user_input }}</p>
+    {% endif %}
+    
+    {% if output %}
+        <h2>Result:</h2>
+        <p>{{ output }}</p>
+    {% endif %}
+</body>
+</html>
